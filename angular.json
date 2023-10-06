@@ -3,5 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "angappro-auth": {
+      "projectType": "library",
+      "root": "projects/angappro-auth",
+      "sourceRoot": "projects/angappro-auth/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/angappro-auth/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angappro-auth/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/angappro-auth/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/angappro-auth/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
   }
 }
